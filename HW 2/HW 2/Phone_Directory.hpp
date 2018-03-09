@@ -30,7 +30,7 @@ public:
     
     std::string lookup_entry(const std::string& name) const;
     std::string add_or_change_entry(const std::string& name, const std::string& number);
-    std::string remove_entry(const std::string& name);
+    std::string static remove_entry(std::string& name);
     
     /** Writes the contents of the directory to the data file. */
     void save();
@@ -52,7 +52,7 @@ private: // Insert the definition of the Directory_Entry class here.
             void setNumber(const std::string & newNumber);
         };
     // Private Functions /** Searches the array of directory entries for the name.
-        int find(const std::string& name) const;
+        static int find(const std::string& name);
     
     /** Adds a new entry with the given name and number to the array of directory entries. @param name The name to be added @param number The number to be added*/
         void add(const std::string& name, const std::string& number);
@@ -64,7 +64,7 @@ private: // Insert the definition of the Directory_Entry class here.
         void reallocate();
     
     /** The number of entries in the directory. */
-        int size;
+        static int size;
     /** The current capacity of the array. */
         int capacity;
     /** Pointer to the array containing the directory data. */
